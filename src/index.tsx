@@ -1546,6 +1546,9 @@ export const FormBuilder: FC = () => {
         height: "100vh",
         display: "flex",
         flexDirection: "column",
+        width: "100%",
+        padding: "0 16px",
+        boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
       }}
     >
       {/* ENHANCED HEADER */}
@@ -2228,11 +2231,12 @@ export const FormBuilder: FC = () => {
         {!previewMode && (
           <div
             style={{
-              width: "280px",
+              // width: "280px",
               // backgroundColor: "#f8fafc",
               borderRight: "1px solid #e2e8f0",
               display: "flex",
               flexDirection: "column",
+              flex: "0 0 25%",
             }}
           >
             <div style={{ padding: "16px", borderBottom: "1px solid #e2e8f0" }}>
@@ -3057,15 +3061,17 @@ export const FormBuilder: FC = () => {
         {!previewMode && selectedField && (
           <div
             style={{
-              width: "320px",
+              minWidth: "320px",
               backgroundColor: "#f8fafc",
               borderLeft: "1px solid #e2e8f0",
               display: "flex",
               flexDirection: "column",
               maxHeight: "100%",
+              flex: "0 0 25%",
+              padding: "16px",
             }}
           >
-            <div style={{ padding: "16px", borderBottom: "1px solid #e2e8f0" }}>
+            <div style={{ borderBottom: "1px solid #e2e8f0" }}>
               <h3
                 style={{
                   margin: "0 0 8px 0",
@@ -3081,7 +3087,7 @@ export const FormBuilder: FC = () => {
               </div>
             </div>
 
-            <div style={{ flex: 1, overflow: "auto", padding: "16px" }}>
+            <div style={{ flex: 1 }}>
               <div
                 style={{
                   display: "flex",
@@ -3221,7 +3227,6 @@ export const FormBuilder: FC = () => {
                         })
                       }
                       style={{
-                        width: "100%",
                         padding: "6px 8px",
                         border: "1px solid #d1d5db",
                         borderRadius: "4px",
@@ -3277,7 +3282,13 @@ export const FormBuilder: FC = () => {
                 )}
 
                 {/* Default Value */}
-                <div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "100%",
+                  }}
+                >
                   <div
                     style={{
                       display: "flex",
@@ -3313,7 +3324,7 @@ export const FormBuilder: FC = () => {
 
                   {selectedField.type === "textarea" ? (
                     <textarea
-                      value={""}
+                      value={selectedField.defaultValue?.toString() || ""}
                       onChange={(e) =>
                         updateField(selectedField.id, {
                           defaultValue: e.target.value,
@@ -3321,7 +3332,6 @@ export const FormBuilder: FC = () => {
                       }
                       rows={3}
                       style={{
-                        width: "92%",
                         padding: "6px 8px",
                         border: "1px solid #d1d5db",
                         borderRadius: "4px",
@@ -3344,14 +3354,14 @@ export const FormBuilder: FC = () => {
                   ) : (
                     <input
                       type="text"
-                      value={""}
+                      // value={""}
+                      value={selectedField.defaultValue?.toString() || ""}
                       onChange={(e) =>
                         updateField(selectedField.id, {
                           defaultValue: e.target.value,
                         })
                       }
                       style={{
-                        width: "100%",
                         padding: "6px 8px",
                         border: "1px solid #d1d5db",
                         borderRadius: "4px",
