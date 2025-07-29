@@ -1,10 +1,18 @@
+html,
+body,
 #root {
+  height: 100%;
   width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+  padding: 0;
 }
 
+#root {
+  display: flex; /* Optional, if you're using Flexbox */
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +47,19 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.fieldTypesGrid button.fieldTypeButton {
+  padding: "12px 8px";
+  border: "1px solid #d1d5db";
+  border-radius: "8px";
+  cursor: "pointer";
+  display: "flex";
+  flex-direction: "column";
+  align-items: "center";
+  gap: "4px";
+  color: "#374151";
+  transition: "all 0.2s";
+  text-align: "center";
+  min-height: "70px";
 }
